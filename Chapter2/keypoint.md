@@ -29,10 +29,10 @@ signed + unsigned -> unsigned
 **Char that are not printable**
 | name | symbol | 
 |---|---|
-| newline | '\n' |
-| vertical tab | '\v' |
-| horizontal tab | '\t' |
-| backspace | '\b' |
+| newline |`\n` |
+| vertical tab | `\v` |
+| horizontal tab | `\t` |
+| backspace | `\b` |
 
 
 
