@@ -26,6 +26,8 @@ signed + unsigned -> unsigned
     // multiple line output
     ``` 
 3. Escape Sequences(轉義序列)
+
+
 **Char that are not printable**
 | name | symbol | 
 |---|---|
