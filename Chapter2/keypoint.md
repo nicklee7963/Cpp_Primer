@@ -28,11 +28,23 @@ signed + unsigned -> unsigned
 3. Escape Sequences(轉義序列)
 **Char that are not printable**
 | name | symbol | 
-| ---  | ---    |
+|---|---|
 | newline | \n |
 | vertical tab | \v |
-| horizontal tab | \h |
+| horizontal tab | \t |
 | backspace | \b |
+
+
+
+| Name              | Escape Sequence | ASCII Value | Description                          |
+|-------------------|------------------|-------------|--------------------------------------|
+| Newline           | `\n`             | 10          | Moves cursor to the next line        |
+| Vertical Tab      | `\v`             | 11          | Moves cursor vertically (rarely used)|
+| Horizontal Tab    | `\t`             | 9           | Inserts a horizontal tab             |
+| Backspace         | `\b`             | 8           | Moves cursor one character back      |
+| Carriage Return   | `\r`             | 13          | Returns cursor to beginning of line  |
+| Alert (Bell)      | `\a`             | 7           | Makes a beep sound (if supported)    |
+| Null              | `\0`             | 0           | Null terminator (end of string)      |
 
 4. Assigned a type for literal 
 **Prefix**
