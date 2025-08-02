@@ -102,10 +102,59 @@ e.g. `, `
 
 # 4.11 Type Conversion
 - **implicit conversions**: `int ival = 3.541 + 3;`
-    - In arthemetic, small int will be convert to larger one: short -> int
+    - In arithmetic, small int will be convert to larger one: short -> int
     - In condition, non-bool -> bool
     - In assignment, right operands type -> left type
  
+### 4.11.1 Arithmetic Conversions
+**If a signed and an unsigned int appear in the same expression, the signed one will usually be converted to unsigned.**
+### 4.11.2 Other Implicit Conversions
+**array to pointer**: when we use an array it will be convert to pointer.
+e.g.
+```cpp
+int ia[10];
+int* ip = ia;   // ip points to ia's first element
+```
+**pointer conversion**: 
+pointer points to non-const can be convert to void*, 
+every pointer can be change to const void*
+e.g.
+```cpp
+int x = 10;
+int* p = &x;
+void* vp = p; // p is converted to void*
+```
+**conversion to bool**: both pointer and arithmetic if not 0 , will be true
+e.g.
+```cpp
+char *cp = get_string();
+if (cp)  
+...
+while (*cp)
+...
+```
+**conversion to const**: non const -> const
+e.g.
+```cpp
+int i;
+const int &j = i;  
+const int *p = &i;  
+```
+**conversion  defined by class types**
+e.g.
+```cpp
+string s, t = "a value";  // string literal -> string
+while (cin >> s) // cin -> bool
+```
+
+### 4.11.3 Explicit Conversion
+#### Named Cast
+`cast-name<type>(expression)`
+**If type is a reference the result is lvalue**
+- `static_cast`
+
+
+
 
 
 
