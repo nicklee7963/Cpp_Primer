@@ -85,7 +85,7 @@ e.g. `.`, `->`
 
 # 4.7 Ternary Operator
 `cond ? expr1 : expr2;`
-`string finalgrade = (grade < 60) ? "fail" : "pass";
+`string finalgrade = (grade < 60) ? "fail" : "pass";`
 
 # 4.8 Bitwise Operator
 `~`: not
@@ -151,7 +151,7 @@ while (cin >> s) // cin -> bool
 #### Named Cast
 `cast-name<type>(expression)`
 **If type is a reference the result is lvalue**
-- `static_cast`
+- ``static_cast``
 
 
 
