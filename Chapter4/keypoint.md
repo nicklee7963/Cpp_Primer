@@ -151,7 +151,22 @@ while (cin >> s) // cin -> bool
 #### Named Cast
 `cast-name<type>(expression)`
 **If type is a reference the result is lvalue**
-- ``static_cast``
+- ``static_cast``:用在較大的算術型別被指定給小的
+    
+    e.g.
+    ```cpp
+    int i, j;
+    double slope = static_cast<double>(j) / i;
+
+    void* p = &d;
+    double *dp = static_cast<double*>(p);
+    ```
+    - can't change const to non const
+
+- ``const_cast``: cast away the const, **使用const_cast以寫入const物件是未定義的
+- ``reinterpret_cast``: 改變指標
+
+
 
 
 
