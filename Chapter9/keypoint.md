@@ -243,6 +243,35 @@ list, forward_list, deque 支援
     `c.at(n)`: return a reference of c[n],  **If n is out of range, it throws a std::out_of_range exception.**
 
 
+### 9.3.3 Delete Element
+#### pop_front and pop_back
+`c.pop_back()`: 移除最後一個, return void
+`c.pop_front()`: 移除第一個, return void
+`c.erase(p)`: 移除iterator p 代表元素
+`c.erase(b, e)`: 移除iterator b, e 範圍中的元素
+`c.clear()`: 移除所有元素
+
+### 9.3.4 forward_list 運算
+`lst.before_begin()`: off-the-beginning iterator
+insert_after, erace_after ..
+移除奇數值：
+```cpp
+forward_list<int> flst = {0, 1, 2, 3, 4, 5};
+auto prev = flst.before_begin();
+auto curr = flst.begin();
+while (curr != flst.end()){
+    if (*curr % 2)
+        curr = flst.erase_after(prev);
+    else {
+        prev = curr;
+        ++curr;
+    }
+}
+```
+### 9.3.5 modify size of container
+`c.resize(n)`: 重新調整c大小，if `n < c.size()` 元素會被捨棄.若加入新的元素，為直初始話
+`c.resize(n, t)`: 調整c大小，讓它為n個t
+
 
     
 
