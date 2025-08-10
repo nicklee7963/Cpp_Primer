@@ -273,6 +273,135 @@ while (curr != flst.end()){
 `c.resize(n, t)`: 調整c大小，讓它為n個t
 
 
+# 9.4 vector 的增長方式
+resize can't deallocate memory
+`c.shrink_to_fit()`: 請求將cpapcity()降到等於size()
+`c.capacity()`: c可以有的元素數
+`c.reverse(n)`: 為n個元素分配空間
+# 9.5 額外的string 運算
+# 9.5.1 建構字串的其他方式
+除了 3.2.1, 循序容器共通的運算
+`string c(cp, n);`: s 是cp 前n個string 的拷貝
+`string s(s2, pos2)`: s 是s2 從pos2 開始的字元
+`string s(s2, pos2, len2)`: s 是s2 從pos2 開始的len2 個字元
+
+#### `substr`運算
+`s.substr(pos, n)`: return 一個string 包含s從pos開始的n個字元
+
+### 9.5.2 修改字串的其他方式
+`s.insert(pos, arg)`
+`s.erase(pos, len)`
+`s.assign(args)`
+`s.append(args)`
+`s.replace(range, args)`
+### 9.5.3 string 搜尋運算
+return type of string::size_type, if no match return string::npos  -> unsigned
+`s.find(args)`: 在s找尋第一個args
+`s.rfind(args)`: 在s找出最後一個args
+`s.find_first_of(args)`: 在s找args中任一個第一個出現處
+`s.find_last_of(args)`: 在s找args中任一個最後一個出現處
+`s.find_first_not_of(args)`: 在s找出第一個不再args的字元
+`s.find_last_not_of(args)`: 在s找出最後一個不再args的字元
+
+### 9.5.4 `compare`函式
+```cpp
+int result = s1.compare(s2);
+
+    if (result == 0) {
+        cout << s1 << " == " << s2 << endl;
+    } else if (result < 0) {
+        cout << s1 << " < " << s2 << endl;
+    } else {
+        cout << s1 << " > " << s2 << endl;
+    }
+```
+`s1.compare(0, 3, s2, 0, 3);`
+### 數值轉換
+```cpp
+int i = 42;
+string s = to_string(i);   // int -> char
+double d = stod(s)  // string -> double
+```
+`to_string(val)`: 算術型別->string
+`stoi(s, p, b)`: string中有數值內容傳為一個int, long, unsigned long, long long, unsigned long long
+`stol(s, p, b)`: b is numeric base, p return a pointer points to the first not number char
+`stoul(s, p, b)`
+`stoll(s, p, b)`
+`stoull(s, p, b)`
+`stof(s, p)`: return float, double, long double
+`sotd`
+`stold`
+
+# 9.6 Container Adaptor
+- **Definition**: Wrappers that provide a restricted interface to an underlying container.
+- **Purpose**: Adapt an existing container (e.g., `deque`, `vector`, `list`) to behave like a specific abstract data type.
+- **Common Examples**:
+  - `std::stack` → LIFO stack (default: `deque`)
+  - `std::queue` → FIFO queue (default: `deque`)
+  - `std::priority_queue` → Max-heap priority queue (default: `vector`)
+- **Characteristics**:
+  - Not standalone containers — rely on another container for storage.
+  - Restrict access to elements (no random access in `stack`/`queue`).
+  - Allow customizing the underlying container type.
+- **Time Complexity**:
+  - Push/Pop/Top (or Front/Back) operations are typically **O(1)**.
+
+
+**container adaptor 共通運算與型別**
+```cpp
+size_type: unsigned integer type in C++ (and C) that is used to represent the size of objects in memory or the number of elements in a container.  big enough to hold the maximum size of any object in memory.
+value_type: 元素型別
+container_type: 底層容器型別
+A a: create a adaptor a
+A a(c): a is a copy of c
+a.empty()
+a.size()
+swap(a, b)
+a.swap(b)
+```
+
+#### Define a Container Adaptor
+- constructor to create a empty object
+- constructor to accept a container
+#### Stack Adaptor
+need **push_back, pop_back, back**
+`#include <stack>`
+```cpp
+stack<int> intStack;
+for(size_t ix = 0; ix != 10; ++ix)
+    intStack.push(ix);
+while (!intStack.empty()) {
+    int value = intStack.top();
+    intStack.pop();
+}
+
+```
+**stack專屬運算**
+`s.pop()`: 移除頂端，不回傳
+`s.push(item)`: 在stack創建一個新的頂端元素
+`s.emplace(args)`
+`s.top()`: 回傳stack頂端元素
+#### Queue Adaptors
+need front, push_back, pop_front, back
+`#include <queue>`
+**queue專屬運算**
+`q.pop()`: 移除前端元素，不回傳
+`q.front()`: return  // queue
+`q.back()`
+`q.top()`: 回傳最高優先序元素  // priority_queue
+`q.push()` 
+`q.emblace()`
+
+
+
+
+
+
+
+
+
+
+
     
 
 
