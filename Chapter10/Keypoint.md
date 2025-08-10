@@ -1,6 +1,7 @@
 # Generic Algorithms
 # 10.1 概觀
-`#include <algorithms` ```cpp find(vec.cbegin(), vec.cend(), val); // look for every elements between cbegin and cend, find the one equal to val
+`#include <algorithms` 
+```cpp find(vec.cbegin(), vec.cend(), val); // look for every elements between cbegin and cend, find the one equal to val
 ```
 # 10.2 演算法初探
 ### 10.2.1 唯讀演算法
